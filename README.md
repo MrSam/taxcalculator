@@ -5,6 +5,7 @@ When selling goods from a EU member state you will have to calculate VAT as a pe
   - If the buyer is a NON-EU __company__ use the sellers country VAT rate.
   - If the buyer is a NON-EU __person__ use the sellers country VAT rate.
   - If the buyer is a EU __company__ with a valid VAT number there should be NO VAT.
+  - If the buyer is a EU __company__ with a valid VAT but in the same EU member state use VAT.
   - If the buyer is a EU __company__ without a valid VAT number use the buyers country VAT rate.
   - If the buyer is a EU __person__ use the buyers country VAT rate. 
 
@@ -43,9 +44,21 @@ When selling goods from a EU member state you will have to calculate VAT as a pe
         'SK' => 0.20,
         'SI' => 0.22,
 
-### Usage
+### Usage 
 
-```sh
-$ todo
+```php
+$tc = new TaxCalculator("be");
+echo "Your country rate is " . $tc->getOriginRate();
+```
+
+```php
+$tc = new TaxCalculator("fr");
+echo "If you sell from " . $tc->getOriginCountry() . " to USA the rate is " . $tc->getRate("USA") . "%\n";
+echo "If you sell from " . $tc->getOriginCountry() . " to USA company the rate is " . $tc->getRate("USA", true) . "%\n";
+echo "If you sell from " . $tc->getOriginCountry() . " to FR the rate is " . $tc->getRate("FR") . "%\n";
+echo "If you sell from " . $tc->getOriginCountry() . " to FR company the rate is " . $tc->getRate("FR", true) . "%\n";
+echo "If you sell from " . $tc->getOriginCountry() . " to BE the rate is " . $tc->getRate("BE") . "%\n";
+echo "If you sell from " . $tc->getOriginCountry() . " to BE company the rate is " . $tc->getRate("BE", true) . "%\n";
+
 ```
 
