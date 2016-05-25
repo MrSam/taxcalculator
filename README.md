@@ -4,8 +4,8 @@ When selling goods from a EU member state you will have to calculate VAT as a pe
 
   - If the buyer is a NON-EU __company__ use the sellers country VAT rate.
   - If the buyer is a NON-EU __person__ use the sellers country VAT rate.
-  - If the buyer is a EU __company__ with a valid VAT number there should be NO VAT.
   - If the buyer is a EU __company__ with a valid VAT but in the same EU member state use VAT.
+  - If the buyer is a EU __company__ with a valid VAT number there should be NO VAT.
   - If the buyer is a EU __company__ without a valid VAT number use the buyers country VAT rate.
   - If the buyer is a EU __person__ use the buyers country VAT rate. 
 
